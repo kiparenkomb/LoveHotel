@@ -1,0 +1,81 @@
+$breakpoints: (
+  'xs-phone': 320px,
+  'phone': 480px,
+  'tablet': 768px,
+  'desktop': 1024px,
+  'widescreen': 1200px
+);
+
+// keywords
+$media-expressions: (
+  'screen': 'screen',
+  'print': 'print',
+  'handheld': 'handheld',
+  'landscape': '(orientation: landscape)',
+  'portrait': '(orientation: portrait)',
+  'retina2x': '(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)',
+  'retina3x': '(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)'
+);
+
+// ligatured operators ≥ ≤
+
+@import 'base/variables';
+@import 'base/functions';
+@import 'base/mixins';
+@import 'base/helpers';
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/forms';
+
+@import 'components/bootstrap-custom';
+// ---------------------- Default style
+a {
+  cursor: pointer;
+}
+// ---------------------- End Default style
+
+// ---------------------- Colors
+$color-blue: #76c7c0;
+$color-red: #e2534b;
+$color-grey: #808d8d;
+// ---------------------- End Colors
+
+// ---------------------- Body
+.wrapper {
+  margin: 0 auto;
+}
+// ---------------------- Header
+header {
+  background: $color-blue;
+  position: relative;
+  &:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 9px;
+    width: 100%;
+    background-image: url('./images/header-bg.png');
+  }
+  .logo {
+    
+  }
+  nav {
+    display: inline-block;
+    .menu{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      .item {
+        display: inline-block;
+        .sub-menu {
+          display: none;
+        }
+      }
+    }
+  }
+  input {
+    display: inline-block;
+  }
+}
+// ---------------------- End Header
+// ---------------------- End Body
