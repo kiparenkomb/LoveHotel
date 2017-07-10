@@ -1,51 +1,63 @@
 <!DOCTYPE html>
 html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Sliceart
-    link(rel="shortcut icon" href="build/images/favicon.ico" type="image/x-icon")
-    link(media="all", rel="stylesheet", href="build/vendor.css")
-    link(media="all", rel="stylesheet", href="build/app.css")
-  body
-    div.wrapper
-      header
-        div.container
-          div.row
-            div.col-md-4
-              a.logo MODUS
-                span versus
-            div.col-md-8
-              nav
-                ul.menu
-                  li.item
-                    a HOME
-                  li.item
-                    a ABOUT
-                  li.item
-                    a SERVICES
-                  li.item
-                    a PORTFOLIO
-                    ul.sub-menu
-                      li.sub-item
-                        a Portfolio 2 column page
-                      li.sub-item
-                        a Portfolio 2 column page
-                      li.sub-item
-                        a Portfolio 2 column page
-                  li.item
-                    a BLOG
-                  li.item
-                    a FEATURES
-                  li.item
-                    a CONTACTS
-              input(type="search")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		title Sliceart
+		link(rel="shortcut icon" href="build/images/favicon.ico" type="image/x-icon")
+		link(media="all", rel="stylesheet", href="build/vendor.css")
+		link(media="all", rel="stylesheet", href="build/app.css")
+	body
+		- var menus = [{text: 'Об отеле', link: '#about-hotel'}, {text: 'Номера', link: '#rooms' }, {text: 'Удобства и услуги', link: '#services'}, {text: 'Условия проживания', link: '#accommodations'}, {text: 'Контакты', link: '#contacts'}];
+		- var logo = "<span>Love</span> Отель";
+		- var about = "Новейший отель европейского класса с комфортабельными дизайнерскими номерами! Построенный в 2016 году и впервые открывающий двери для своих гостей сейчас!";
+		.wrapper
+			header.header
+				.navbar
+					.container
+						.navbar-header
+								button(type="button", class="navbar-toggle collapsed", data-toggle="collapse",data-target="#bsnav", aria-expanded="false")
+									span.sr-only Toggle navigation
+									span.icon-bar
+									span.icon-bar
+									span.icon-bar
+								a(href="#" class="navbar-brand") !{logo.toUpperCase()}
+						.collapse.navbar-collapse
+							ul.nav.navbar-nav.navbar-right
+								each list in menus
+									li
+										a.nav__link(href=list.link, role="button" aria-haspopup="true" aria-expanded="false")= list.text.toUpperCase()
+			div
+				.info
+					.container
+						.text-right
+							span.adress 
+								i.fa.fa-map-marker.fa-2x
+								a(href="https://goo.gl/maps/qVknwQQqAfm" class="adress__link" target="_blank") Украина, г.Харьков
+							span.phones
+								i.fa.fa-phone.fa-2x
+								a(href="tel:+380950170820" class="phones__link") (095) 01-70-820
+								a(href="tel:+380684612773" class="phones__link") (068) 46-12-773
+
+			section.section.section--red.section--about
+				.container
+					.row
+						.col-xs-12.col-md-6
+							article.about
+								h1.about__title "!{logo.toUpperCase()}" -
+								p.h4.about__text=about.toUpperCase()
+								a(href="javascript:void(0)" class="btn btn--white about__btn") #{'Забронировать номер'.toUpperCase()}
+						.col-xs-12.col-md-6
+							img.about__img(src='http://www.soehnepartner.com/img/cache/redroom_06rhell1379006395.3793.jpg', alt='Love Hotel')
 
 
 
 
-      
 
-    script(src="build/vendor.js")
-    script(src="build/app.js")
-    script(src="http://localhost:35729/livereload.js?snipver=1")
+
+
+			
+
+		script(src="build/vendor.js")
+		script(src="build/app.js")
+		script(src="http://localhost:35729/livereload.js?snipver=1")
