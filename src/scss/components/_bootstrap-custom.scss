@@ -8,14 +8,15 @@ $container-lg:            (1240px + $grid-gutter-width);
 //$font-family-sans-serif: 'Roboto', sans-serif, Helvetica, Arial;
 $font-size-base:          18px;
 
-$font-size-h1:            48px;
-$font-size-h2:            48px;
-$font-size-h3:            30px;
-$font-size-h4:            20px;
+$font-size-h1:            36px;
+$font-size-h2:            30px;
+$font-size-h3:            24px;
+$font-size-h4:            18px;
 $headings-font-weight:    700;
 
 $link-color:              #000;
 $link-hover-decoration:   none;
+$state-danger-text:       #fe0000;
 
 // ---------------------- Buttons
 $btn-font-weight:         bold;

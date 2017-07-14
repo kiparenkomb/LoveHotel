@@ -24,58 +24,34 @@ $media-expressions: (
 @import 'base/mixins';
 @import 'base/helpers';
 @import 'base/reset';
-@import 'base/typography';
-@import 'base/forms';
+// @import 'base/forms';
 
 @import 'components/bootstrap-custom';
 // ---------------------- Default style
 a {
 	cursor: pointer;
 }
-.btn {
-	padding: 10px 15px;
-	&--white {
-		background: $white;
-		color: $black;
-	}
-	&--red {
-		background: $red;
-		color: $white;
+.text-white {
+	color: $white;
+	h3 {
+		text-shadow: 1px 1px 1px $black;
 	}
 }
 .section {
+	padding: 50px 0;
 	&--red {
 		background: $red;
 	}
+	&--white {
+		background: $white;
+	}
+	&--gray {
+		background: $gray;
+	}
 	&--about {
+		padding: 0;
 		max-height: 500px;
 		position: relative;
-	}
-}
-.about {
-	// margin: 50px 0;
-	color: $white;
-	max-height: 500px;
-	padding: 10px 0;
-	overflow: hidden;
-	@at-root {
-		&:before {
-			content: '';
-			display: inline-block;
-			height: 100%;
-			vertical-align: middle;
-		}
-	}
-	&__title {
-		margin: 0;
-	}
-	&__text {
-		font-weight: 400;
-		line-height: 1.3em;
-		max-width: 500px;
-	}
-	&__btn {
-		margin-top: 50px;
 	}
 }
 // ---------------------- End Default style
@@ -118,6 +94,7 @@ a {
 .navbar-brand {
 	display: block;
 	height: 118px;
+	padding: 5px;
 	background: $white;
 	position: absolute;
 	top: 0;
@@ -125,7 +102,7 @@ a {
 	color: $black;
 	font-weight: 700;
 	font-size: 5rem;
-	line-height: 1em;
+	line-height: 1;
 	span {
 		font-size: 6rem;
 		color: $red;
@@ -161,10 +138,123 @@ a {
 	background: $red;
 }
 
+.about {
+	// margin: 50px 0;
+	color: $white;
+	max-height: 500px;
+	padding: 10px 0;
+	overflow: hidden;
+	&__img {
+		object-fit: cover;
+	}
+	&__title {
+		margin: 0;
+	}
+	&__text {
+		font-weight: 400;
+		max-width: 500px;
+		line-height: 1.3;
+	}
+	&__btn {
+		margin-top: 50px;
+	}
+}
+
+.destiny {
+	color: $white;
+	max-height: 500px;
+	padding: 10px 0;
+	overflow: hidden;
+	&__box {
+		padding-left: 100px;
+		color: $black;
+		position: relative;
+		&::before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 45px;
+			left: 10px;
+			width: 65px;
+			height: 65px;
+			// border: 1px solid #000;
+			background-image: url(images/icon/icon-sprite-1.png);
+			background-position: -29px 0px;
+		}
+		&:nth-child(2) {
+			&::before {
+				background-position: -120px 0px;
+			}
+		}
+		&:nth-child(3) {
+			&::before {
+				background-position: -209px 0px;
+			}
+		}
+	}
+	&__title {
+		color: $red;
+	}
+	&__img {
+		box-shadow: -10px 30px 0px $red;
+	}
+	&__text {
+		font-weight: 400;
+		max-width: 500px;
+	}
+	&__btn {
+		margin-top: 50px;
+	}
+}
 
 
 
 
+.benefits__img {
+	display: block;
+	width: 110px;
+	height: 100px;
+	margin: 30px auto;
+	background: url(images/icon/icon-sprite-2.png);
+	&--price {
+		background-position: -60px 0px;
+	}
+	&--confident {
+		background-position: -215px 5px;
+	}
+	&--speak {
+		background-position: -385px 0px;
+		
+	}
+}
+
+.section--schedule {
+	background: url(images/nomera.jpg) no-repeat 50% 0;
+	background-size: contain;
+}
+.schedule {
+	margin: 50px 0 0;
+	padding: 20px;
+	&__img {
+		display: block;
+		width: 150px;
+		height: 100px;
+		margin: 10px auto;
+		background: url(images/icon/icon-sprite-2.png);
+		&--time {
+			background-position: -20px -160px;
+		}
+		&--room {
+			background-position: -200px -160px;
+		}
+	}
+	&__text {
+		max-width: 300px;
+		margin: 0 auto;
+	}
+}
 
 
-// ---------------------- End Body
+.section--room {
+	padding-top: 0;
+}

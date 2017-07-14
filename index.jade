@@ -39,16 +39,93 @@ html(lang="en")
 								a(href="tel:+380950170820" class="phones__link") (095) 01-70-820
 								a(href="tel:+380684612773" class="phones__link") (068) 46-12-773
 
+
+
+
 			section.section.section--red.section--about
 				.container
 					.row
-						.col-xs-12.col-md-6
+						.col-xs-12.col-md-6.clearfix
 							article.about.js-margin
-								h1.about__title "!{logo.toUpperCase()}" -
+								h1.h2.about__title "!{logo.toUpperCase()}" -
 								p.h4.about__text=about.toUpperCase()
-								a(href="javascript:void(0)" class="btn btn--white about__btn") #{'Забронировать номер'.toUpperCase()}
+								a(href="javascript:void(0)" class="btn btn-default btn-lg about__btn") #{'Забронировать номер'.toUpperCase()}
+						.col-xs-12.col-md-6.clearfix
+							img.about__img.img-responsive(src='build/images/glavnaja.jpg', alt='Love Hotel')
+
+
+
+
+
+			section.section.section--white.section--destiny
+				.container
+					.row
 						.col-xs-12.col-md-6
-							img.about__img(src='http://www.soehnepartner.com/img/cache/redroom_06rhell1379006395.3793.jpg', alt='Love Hotel')
+							img.destiny__img.img-responsive(src='build/images/koridor.jpg', alt='Love Hotel', data-offset="50")
+						.col-xs-12.col-md-6
+							.destiny
+								.destiny__box
+									p.h2.text-danger ЧТО?
+									p.destiny__text 46 двухместных номеров в комортабельном отеле еврокласса, с кроватями размера «king size», собственной кухней и огромными зеркалами!
+								.destiny__box
+									p.h2.text-danger ГДЕ?
+									p.destiny__text В 10-ти минутах от центра города! Рядом есть множество магазинов, супермаркетов, торговый и развлекательный центры!
+								.destiny__box
+									p.h2.text-danger КОМУ?
+									p.destiny__text Для самых требовательных гостей, ценящих комфортный отдых и качественное обслуживание; для желающих остановиться на короткий срок и на время длительных командировок!
+
+
+
+
+
+			section.section.section--gray.section--benefits
+				.container
+					h2.text-uppercase.text-center Если выбирать - только «Love&nbsp;отель»!
+					.row
+						.col-xs-12.col-md-4
+							.benefits__box.text-center
+								span.benefits__img.benefits__img--price
+								p.h3.text-uppercase ДОСТУПНЫЕ ЦЕНЫ
+								p.benefits__text «Love отель» предоставляет комфортные условия проживания на европейском уровне по демократичным ценам!
+						.col-xs-12.col-md-4
+							.benefits__box.text-center
+								span.benefits__img.benefits__img--confident
+								p.h3.text-uppercase КОНФИДЕНЦИАЛЬНОСТЬ
+								p.benefits__text Персонал отеля уважает Ваше право на конфиденциальность и не преследует цели использовать информацию, содержащую Ваши личные данные!
+						.col-xs-12.col-md-4
+							.benefits__box.text-center
+								span.benefits__img.benefits__img--speak
+								p.h3.text-uppercase МЫ ГОВОРИМ НА:
+								p.benefits__text украинском, русском и 
+									br
+									|английском языках!
+
+
+
+			section.section.section--white.section--schedule.text-white
+				.container
+					.row
+						.col-xs-12.col-md-8.col-md-offset-2
+							h3.text-uppercase.text-center вы можете снять 
+								span.h1 номера почасово, посуточно, 
+								|понедельно, помесячно!
+							.schedule.section--red.text-center
+								.row
+									.col-xs-12.col-md-6
+										span.schedule__img.schedule__img--time
+										p.schedule__text Круглосуточная работа стойки регистрации с администратором! Персонал отеля с радостью выполнит все Ваши пожелания в любое время суток!
+									.col-xs-12.col-md-6
+										span.schedule__img.schedule__img--room
+										p.schedule__text двухместных дизайнерских номеров еврокласса с собственной кухней к услугам гостей в «Love&nbsp;отеле»!
+									.col-xs-12
+										p.h3.text-uppercase В номере большие кровати и зеркала!
+
+
+			section.section.section--white.section--room
+				.container
+					h2.text-uppercase.text-center Номера
+					.row
+						.col-xs-12.col-md-8.col-md-offset-2
 
 
 
@@ -56,7 +133,21 @@ html(lang="en")
 
 
 
-			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		script(src="build/vendor.js")
 		script(src="build/app.js")

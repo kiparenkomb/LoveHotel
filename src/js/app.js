@@ -46,14 +46,16 @@
 	$(window).on("load resize scroll",function() {
 		if ($(window).width() > 768) {
 			let heightBox = $('.js-margin').innerHeight();
-			let heightParentBox = $('.section--about').innerHeight();
+			let heightParentBox = $('.js-margin').parent().parent().innerHeight();
 			$('.js-margin').css('margin-top', heightParentBox/2 - heightBox/2);
 		} else {
 			$('.js-margin').css('margin', '20px 0');
 		}
 	});
 
-	
+
+
+
 
 
 }(jQuery));
