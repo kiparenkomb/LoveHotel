@@ -248,7 +248,144 @@ html(lang="en")
 
 
 
+			section.section.section--white.section--regulations.text-white
+				.container
+					.row
+						.col-xs-12.col-md-10.col-md-offset-1
+							h2.text-uppercase.text-center.text-shadow правила проживания
+							p.regulations__title.text-center.text-shadow Уважаемые гости! Мы рады приветствовать Вас в нашем отеле! 
+								br
+								|Пожалуйста, внимательно ознакомьтесь с правилами проживания.
+							.regulations.section--gray.text-center
+								dl.dl-horizontal
+									dt.text-danger ЗАЕЗД:
+									dd С 12:00
 
+									dt.text-danger ОТЪЕЗД:
+									dd С 13:00
+
+									dt.text-danger УСЛОВИЯ 
+										br
+										|ОПЛАТЫ:
+									dd При вселении в отель, постоялец оплачивает стоимость номера минимум за одни сутки вперед. Дополнительные услуги могут быть оплачены при выселение в конце проживания.
+									dd В случае не заселения оплата за бронь не возвращается.
+
+
+									dt.text-danger ДОМАШНИЕ 
+										br
+										|ЖИВОТНЫЕ:
+									dd Размещение домашних животных в отеле возможно по предварительному согласию у администратора.
+
+									dt.text-danger БРОНИРОВАНИЕ/ 
+										br
+										|РЕГИСТРАЦИЯ:
+									dd В отеле предусмотрена круглосуточная стойка регистрации.
+										br
+										|Бронирование номеров отеля производится круглосуточно.
+
+
+
+
+
+
+								.row
+									.col-xs-12
+										span.h3.text-uppercase.text-black.js-btn-modal Забронировать номер можно по 
+										ul.contact-app.list-unstyled.list-inline
+											li.contact-app__box
+												a.contact-app__link(href="mailto:ApartOtel.VG@gmail.com")
+											li.contact-app__box
+												a.contact-app__link(href="viber://add?number=380950170820")
+											li.contact-app__box
+												a.contact-app__link(href="https://api.whatsapp.com/send?phone=380950170820" target="_blank")
+											li.contact-app__box.hidden
+												a.contact-app__link(href="tg://resolve?domain=hotel_VorobGoru" target="_blank")
+									.col-xs-12
+										span.h3.text-uppercase.text-black по телефону 
+											a.phone-number(href="tel:+380965124957") 096-512-49-57
+									.col-xs-12
+										.btn.btn-danger.btn-large.btn-margin-top.text-uppercase.js-more Больше информации
+											i.fa.fa-times.btn-icon-close.hidden
+											i.fa.fa-chevron-down.btn-icon
+
+							.more
+								.row
+									.col-xs-12.col-md-6
+										ul.list-unstyled.more-info.more-info--even
+											li.more-info--even__list Для заселения необходимы документы, удостоверяющие личность
+											li.more-info--even__list Перед выселением постоялец обязан уведомить администратора.
+											li.more-info--even__list Постояльцы отеля и посетители могут воспользоваться дополнительными услугами отеля.
+											li.more-info--even__list Уходя из номера, отдавайте ключ администратору. Администрация отеля не несет ответственность за Ваше личное имущество, оставленное в номерах. 
+											li.more-info--even__list Администрация отеля вправе отказать в обслуживании Гостю, находящемуся в состоянии алкогольного или наркотического опьянения.
+
+									.col-xs-12.col-md-6
+										ul.list-unstyled.more-info.more-info--odd
+											li.more-info--odd__list Собственный ключ от номера при поселении
+											li.more-info--odd__list Размещение гостей в номере  после 21:00 оплачиваются дополнительно у администратора
+											li.more-info--odd__list При повреждении или утрате имущества отеля, предоставленного во временное пользование, необходимо возместить его стоимость у администратора. 
+											li.more-info--odd__list На территории отеля запрещено курение, употребление и хранение  наркотиков, а также предметов и веществ, угрожающих жизни и здоровью граждан. 
+											li.more-info--odd__list С 22:00 до 08:00 в отеле установлен режим тишины.
+
+
+			footer.footer.section--padding
+				.container
+					h2.h1.text-center.text-uppercase Контакты
+					.row
+						.col-xs-12.col-md-4
+							.footer__box.text-center
+								span.footer__icon.footer__icon--adress
+								span.h2.footer__title.text-uppercase Адрес
+								span.footer__text Украина г. Харьков
+						.col-xs-12.col-md-4
+							.footer__box.text-center
+								span.footer__icon.footer__icon--phone
+								span.h2.footer__title.text-uppercase Телефон
+								a.text-white(href="tel:+380950170820") (095) 01-70-820
+								br
+								a.text-white(href="tel:+380684612773") (068) 46-12-773
+						.col-xs-12.col-md-4
+							.footer__box.text-center
+								span.footer__icon.footer__icon--email
+								span.h2.footer__title.text-uppercase e-mail
+								a.text-white(href="mailto:apart.otel.ua@gmail.com") apart.otel.ua@gmail.com
+
+
+
+
+
+
+
+
+
+		.background
+		.container
+			.row
+				.modal.modalbox.form.col-sm-8.col-md-6.col-lg-5.center.animate
+					.icon
+						span.fa.fa-keyboard-o
+					p.h1 Введите Ваши данные!
+					form.form-signin
+						input.form-control(type="email" placeholder="Ваш Email!" required autofocus)
+						input.form-control(type="text" placeholder="Ваш телефон!" required)
+						button(type="submit" class="redo btn") Отправить заявку
+			.row
+				.modal.modalbox.success.col-sm-8.col-md-6.col-lg-5.center.animate
+					.icon
+						span.fa.fa-check
+					p.h1 Поздравляем!
+					p Ваша заявка успешно 
+						br
+						|отправлена.
+					button(type="button" class="redo btn") Ok
+			.row
+				.modal.modalbox.error.col-sm-8.col-md-6.col-lg-5.center.animate
+					.icon
+						span.fa.fa-thumbs-o-down
+					p.h1 Заполнены не все поля!
+					p Вы желаете 
+						br
+						|продолжить.
+					button(type="button" class="redo btn js-btn-modal") Еще раз!
 
 
 		script(src="build/vendor.js")
