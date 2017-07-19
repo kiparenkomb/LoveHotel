@@ -31,14 +31,37 @@ $media-expressions: (
 a {
 	cursor: pointer;
 }
-.text-white {
-	color: $white;
-	h3 {
-		text-shadow: 1px 1px 1px $black;
+ul {
+	font-size: 0px;
+}
+.btn {
+	&-icon {
+		margin: 0 -5px 0 5px;
+	}
+	&-icon-close {
+		margin: 0 -4px 0 8px;
+	}
+	&-margin-top {
+		margin-top: 30px;
 	}
 }
+.text-white {
+	color: $white;
+}
+.text-black {
+	color: $black;
+}
+.text-shadow {
+	text-shadow: 1px 1px 1px $black;
+}
+.phone-number {
+	color: $red;
+	font-size: 1.2em;
+}
 .section {
-	padding: 50px 0;
+	&--padding {
+		padding: 50px 0;
+	}
 	&--red {
 		background: $red;
 	}
@@ -116,6 +139,7 @@ a {
 
 .info {
 	font-style: italic;
+	background: $white;
 }
 .adress,
 .phones {
@@ -139,7 +163,7 @@ a {
 }
 
 .about {
-	// margin: 50px 0;
+	margin-top: 120px;
 	color: $white;
 	max-height: 500px;
 	padding: 10px 0;
@@ -229,7 +253,7 @@ a {
 }
 
 .section--schedule {
-	background: url(images/nomera.jpg) no-repeat 50% 0;
+	background: $white url(images/nomera.jpg) no-repeat 50% 0;
 	background-size: contain;
 }
 .schedule {
@@ -258,3 +282,110 @@ a {
 .section--room {
 	padding-top: 0;
 }
+
+.swiper-container {
+	width: 100%;
+	height: 300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.swiper-slide {
+	background-size: cover;
+	background-position: center;
+}
+.gallery-top {
+	height: 80%;
+	width: 100%;
+}
+.gallery-thumbs {
+	height: 20%;
+	box-sizing: border-box;
+	padding: 10px 0;
+}
+.gallery-thumbs .swiper-slide {
+	width: 25%;
+	height: 100%;
+	opacity: 0.4;
+}
+.gallery-thumbs .swiper-slide-active {
+	opacity: 1;
+}
+.swiper-button-next,
+.swiper-button-prev {
+	top: initial;
+	bottom: 120px;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-attachment: initial;
+	background-origin: initial;
+	background-clip: initial;
+	background-color: rgba($white, .7);
+	padding: 50px;
+	transform: scale(.5);
+}
+
+
+
+
+.description__box {
+	background: $gray;
+	margin: 1px -15px;
+	padding: 1px 15px 15px 40px;
+}
+.capacity {
+	position: relative;
+	padding-left: 30px;
+	font-weight: 700;
+	&::before {
+		position: absolute;
+		content: "";
+		display: block;
+		top: calc(50% - 9px);
+		left: 0;
+		width: 16px;
+		height: 16px;
+		background: $red;
+	}
+}
+.filling {
+	border-top: 3px solid red;
+	&__icon {
+		width: calc(100% / 9);
+		height: 64px;
+		background-image: url(images/icon/icon-sprite-1.png);
+		&:nth-child(1) {
+			background-position: -60px -85px;
+		}
+		&:nth-child(2) {
+			background-position: -148px -85px;
+		}
+		&:nth-child(3) {
+			background-position: -240px -85px;
+		}
+		&:nth-child(4) {
+			background-position: -305px -85px;
+		}
+		&:nth-child(5) {
+			background-position: -395px -85px;
+		}
+		&:nth-child(6) {
+			background-position: -40px -175px;
+		}
+		&:nth-child(7) {
+			background-position: -130px -175px;
+		}
+		&:nth-child(8) {
+			background-position: -210px -175px;
+		}
+		&:nth-child(9) {
+			background-position: -310px -175px;
+		}
+	}
+	&__price {
+		font-size: 30px;
+	}
+}
+
+
+
