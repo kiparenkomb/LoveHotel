@@ -34,6 +34,10 @@ a {
 ul {
 	font-size: 0px;
 }
+.js-body-modal {
+	overflow: hidden;
+	padding-right: 16px;
+}
 .btn {
 	&-icon {
 		margin: 0 -5px 0 5px;
@@ -57,6 +61,7 @@ ul {
 .phone-number {
 	color: $red;
 	font-size: 1.2em;
+	display: inline-block;
 }
 .section {
 	&--padding {
@@ -64,6 +69,7 @@ ul {
 	}
 	&--red {
 		background: $red;
+		background: linear-gradient(135deg,#000 -20%,#fe0000 30%,#fe0000 80% ,#000 120%);
 	}
 	&--white {
 		background: $white;
@@ -73,7 +79,6 @@ ul {
 	}
 	&--about {
 		padding: 0;
-		max-height: 500px;
 		position: relative;
 	}
 }
@@ -102,6 +107,14 @@ ul {
 	border-bottom: 8px solid $red;
 	margin-bottom: 0;
 }
+.navbar-toggle {
+
+}
+.icon-bar {
+	background: $red;
+	height: 3px !important;
+	width: 30px !important;
+}
 .nav__link {
 	font-weight: 700;
 	color: $black;
@@ -116,21 +129,28 @@ ul {
 }
 .navbar-brand {
 	display: block;
-	height: 118px;
 	padding: 5px;
 	background: $white;
 	position: absolute;
 	top: 0;
-	left: 50px;
+	left: 20px;
 	color: $black;
 	font-weight: 700;
-	font-size: 5rem;
+	font-size: 2rem;
 	line-height: 1;
+	@media (min-width: 992px) {
+		left: 50px;
+		height: 118px;
+		font-size: 5rem;
+	}
 	span {
-		font-size: 6rem;
+		font-size: 2.5rem;
 		color: $red;
 		display: block;
 		text-align: center;
+		@media (min-width: 992px) {
+			font-size: 6rem;
+		}
 	}
 	&:hover {
 		color: inherit;
@@ -140,18 +160,34 @@ ul {
 .info {
 	font-style: italic;
 	background: $white;
+	text-align: center;
+	@media (min-width: 992px) {
+		text-align: right;
+	}
 }
 .adress,
 .phones {
-	line-height: 60px;
 	@include v-align;
-	margin-left: 50px;
+	@media (min-width: 611px) {
+		line-height: 60px;
+	}
+	@media (max-width: 610px) {
+		display: block;
+	}
 	i {
 		color: $red;
 	}
 	a {
 		color: $black;
-		padding-left: 20px;
+		padding-left: 5px;
+		@media (min-width: 375px) {
+			padding-left: 20px;
+		}
+	}
+}
+.phones {
+	@media (min-width: 611px) {
+		margin-left: 50px;
 	}
 }
 // ---------------------- End Header
@@ -168,16 +204,22 @@ ul {
 	max-height: 500px;
 	padding: 10px 0;
 	overflow: hidden;
+	@media (max-width: 991px) {
+		text-align: center;
+	}
 	&__img {
 		object-fit: cover;
+		margin: 0 auto;
 	}
 	&__title {
 		margin: 0;
 	}
 	&__text {
 		font-weight: 400;
-		max-width: 500px;
 		line-height: 1.3;
+		@media (min-width: 992px) {
+			max-width: 500px;
+		}
 	}
 	&__btn {
 		margin-top: 50px;
@@ -186,24 +228,35 @@ ul {
 
 .destiny {
 	color: $white;
-	max-height: 500px;
 	padding: 10px 0;
 	overflow: hidden;
 	&__box {
-		padding-left: 100px;
 		color: $black;
 		position: relative;
+		max-width: 600px;
+		@media (min-width: 992px) {
+			padding-left: 100px;
+		}
+		@media (max-width: 991px) {
+			margin: 0 auto;
+			padding-top: 50px;
+			padding-bottom: 30px;
+			text-align: center;
+		}
 		&::before {
 			content: '';
 			display: block;
 			position: absolute;
-			top: 45px;
-			left: 10px;
+			top: 0;
+			left: calc(50% - 32px);
 			width: 65px;
 			height: 65px;
-			// border: 1px solid #000;
 			background-image: url(images/icon/icon-sprite-1.png);
 			background-position: -29px 0px;
+			@media (min-width: 992px) {
+				top: 45px;
+				left: 10px;
+			}
 		}
 		&:nth-child(2) {
 			&::before {
@@ -221,10 +274,13 @@ ul {
 	}
 	&__img {
 		box-shadow: -10px 30px 0px $red;
+		margin: 0 auto;
 	}
 	&__text {
 		font-weight: 400;
-		max-width: 500px;
+		@media (max-width: 1199px) and (min-width: 992px){
+			font-size: .8em;
+		}
 	}
 	&__btn {
 		margin-top: 50px;
@@ -254,7 +310,11 @@ ul {
 
 .section--schedule {
 	background: $white url(images/nomera.jpg) no-repeat 50% 0;
-	background-size: contain;
+	max-width: 1880px;
+	margin: 0 auto;
+	@media (min-width: 991px) {
+		background-size: contain;
+	}
 }
 .schedule {
 	margin: 50px 0 0;
@@ -330,8 +390,12 @@ ul {
 
 .description__box {
 	background: $gray;
-	margin: 1px -15px;
-	padding: 1px 15px 15px 40px;
+	margin: 1px -15px 30px;
+	padding: 1px 15px 25px;
+	@media (min-width: 992px) {
+		margin: 1px -15px;
+		padding: 1px 15px 15px 40px;
+	}
 }
 .capacity {
 	position: relative;
@@ -350,10 +414,20 @@ ul {
 }
 .filling {
 	border-top: 3px solid red;
+	&__box {
+		@media (max-width: 1024px) {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+	}
 	&__icon {
-		width: calc(100% / 9);
+		width: 65px;
 		height: 64px;
 		background-image: url(images/icon/icon-sprite-1.png);
+		@media (min-width: 1025px) {
+			width: calc(100% / 9);
+		}
 		&:nth-child(1) {
 			background-position: -60px -85px;
 		}
@@ -390,14 +464,16 @@ ul {
 
 
 .section--regulations {
+	max-width: 1880px;
+	margin: 0 auto 400px;
 	background: $white url(images/pravila.jpg) no-repeat 50% 0;
-	background-size: contain;
-	margin-top: 0;
 	padding-top: 8em;
 	position: relative;
 	z-index: 1;
-	margin-bottom: 400px;
 	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+	@media (min-width: 991px) {
+		background-size: contain;
+	}
 }
 .regulations {
 	margin: 50px 0 0;
@@ -425,12 +501,16 @@ ul {
 }
 .dl-horizontal {
 	dt {
-		text-align: left;
-		width: 200px;
+		@media (min-width: 768px) {
+			text-align: left;
+			width: 200px;
+		}
 	}
 	dd {
-		text-align: left;
-		margin-left: 200px;
+		@media (min-width: 768px) {
+			text-align: left;
+			margin-left: 200px;
+		}
 		color: $black;
 		margin-bottom: 20px;
 	}
@@ -538,8 +618,31 @@ ul {
 			}
 		}
 	}
+	&--mob {
+		border-right: none;
+		max-width: 500px;
+		margin: 0 auto -15px;
+		padding-bottom: 0;
+		&__list {
+			text-align: left;
+			margin-left: 90px;
+			margin-right: 0;
+			&::after {
+				left: -90px;
+			}
+			&::before {
+				left: -60px;
+			}
+		}
+	}
 	&--odd {
-		border-left: 2px solid $red;
+		@media (min-width: 768px) {
+			border-left: 2px solid $red;
+		}
+		@media (max-width: 768px) {
+			max-width: 500px;
+			margin: 0 auto;
+		}
 		&__list {
 			min-height: 50px;
 			padding-top: 10px;
@@ -603,11 +706,17 @@ ul {
 
 .footer {
 	background: $red;
+	background: linear-gradient(135deg,#000 -20%,#fe0000 30%,#fe0000 80% ,#000 120%);
 	color: $white;
 	width: 100%;
 	bottom: 0px;
-	position: fixed;
 	z-index: -1;
+	@media (min-width: 769px) {
+		position: fixed;
+	}
+	@media (max-width: 425px) {
+		padding-bottom: 200px;
+	}
 	&__icon {
 		display: inline-block;
 		width: 90px;
@@ -666,6 +775,9 @@ ul {
 	display: block;
 	overflow: inherit;
 	bottom: inherit;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-60%);
 }
 .modalbox.form,
 .modalbox.success,
@@ -814,4 +926,63 @@ ul {
 	margin-bottom: 10px;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////HEARD////////////
+.back-to-top {
+	position: relative;
+}
+.heart  {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	right: 0;
+	top: -150px;
+	background: url(images/icon/heart.png) no-repeat;
+	background-position: 0 0;
+	cursor: pointer;
+	animation: fave-heart 1s steps(28);
+	z-index: 1;
+	@media (min-width: 992px) {
+		top: -520px;
+	}
+	&::after {
+		content: 'ВВЕРХ';
+		display: block;
+		color: darken($gray, 15%);
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translate(-50%);
+		transition: color 1s;
+	}
+	&:hover {
+		background-position: -2800px 0;
+		transition: background 1s steps(28);
+		&::after {
+			color: $red;
+		}
+	}
+}
+@keyframes fave-heart {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: -2800px 0;
+	}
 }

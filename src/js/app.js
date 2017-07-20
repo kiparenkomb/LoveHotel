@@ -1,50 +1,52 @@
 (function ($) {
 
-	$(document).ready(function () {
-		$(document).on("scroll", onScroll);
-		
-		//smoothscroll
-		$('a[href^="#"]').on('click', function (e) {
-			e.preventDefault();
-			$(document).off("scroll");
-			
-			$('a').each(function () {
-				$(this).removeClass('active');
-			})
-			$(this).addClass('active');
-			
-			var target = this.hash,
-			menu = target;
-			$target = $(target);
-			$('html, body').stop().animate({
-				'scrollTop': $target.offset().top+2
-			}, 500, 'swing', function () {
-				window.location.hash = target;
-				$(document).on("scroll", onScroll);
-			});
-		});
-	});
+	// Header navigations
+	(function (document, window, index) {
+		'use strict';
 
-	function onScroll(event){
-		var scrollPos = $(document).scrollTop();
-		$('#menu-center a').each(function () {
-			var currLink = $(this);
-			var refElement = $(currLink.attr("href"));
-			if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-				$('#menu-center ul li a').removeClass("active");
-				currLink.addClass("active");
+		var elSelector = '.header',
+				element = document.querySelector(elSelector);
+
+		if (!element) return true;
+
+		var elHeight = 0,
+				elTop = 0,
+				dHeight = 0,
+				wHeight = 0,
+				wScrollCurrent = 0,
+				wScrollBefore = 0,
+				wScrollDiff = 0;
+
+		window.addEventListener('scroll', function () {
+			elHeight = element.offsetHeight;
+			dHeight = document.body.offsetHeight;
+			wHeight = window.innerHeight;
+			wScrollCurrent = window.pageYOffset;
+			wScrollDiff = wScrollBefore - wScrollCurrent;
+			elTop = parseInt(window.getComputedStyle(element).getPropertyValue('top')) + wScrollDiff;
+
+			if (wScrollCurrent <= 0) element.style.top = '0px';else if (wScrollDiff > 0) element.style.top = (elTop > 0 ? 0 : elTop) + 'px';else if (wScrollDiff < 0) {
+				if (wScrollCurrent + wHeight >= dHeight - elHeight) element.style.top = ((elTop = wScrollCurrent + wHeight - dHeight) < 0 ? elTop : 0) + 'px';else element.style.top = (Math.abs(elTop) > elHeight ? -elHeight : elTop) + 'px';
 			}
-			else{
-				currLink.removeClass("active");
-			}
+
+			wScrollBefore = wScrollCurrent;
 		});
-	}
+	})(document, window, 0);
+
+	// Scroll
+	$(".nav .menu__link_index, .nav a").click(function (event) {
+		event.preventDefault();
+		var id = $(this).attr('href'),
+				top = $(id).offset().top;
+		$('body,html').animate({ scrollTop: top }, 1500);
+	});
+	// end - Scroll
 
 
 
 
 	$(window).on("load resize scroll",function() {
-		if ($(window).width() > 768) {
+		if ($(window).width() > 991) {
 			let heightBox = $('.js-margin').innerHeight();
 			let heightParentBox = $('.js-margin').parent().parent().innerHeight();
 			$('.js-margin').css('margin-top', heightParentBox/2 - heightBox/2);
@@ -108,11 +110,17 @@
 
 	$('.js-more').click(function() {
 		$('.more').slideToggle();
-		var maxHeight = 0;
-		$('.more-info').each(function() {
-			maxHeight = Math.max(maxHeight, $(this).innerHeight());
-		});
-		$('.more-info').css({height:maxHeight + 'px'});
+		if ($(window).width() > 767) {
+			var maxHeight = 0;
+			$('.more-info').each(function() {
+				maxHeight = Math.max(maxHeight, $(this).innerHeight());
+			});
+			$('.more-info').css({height:maxHeight + 'px'});
+		} else {
+			$('.more-info').addClass('more-info--mob');
+			$('.more-info li').addClass('more-info--mob__list');
+			
+		}
 		$('.js-more .btn-icon').toggleClass('hidden');
 		$('.js-more .btn-icon-close').toggleClass('hidden');
 	});
@@ -131,13 +139,15 @@
 
 	$(document).ready(function () {
 		$('.js-btn-modal').click(function(){
+			$('body').addClass('js-body-modal');
 			$('.background').show();
 			$('.modal').removeClass('modal-open');
 			$('.form').toggleClass('modal-open');
 		});
 		$('.background').click(function(){
-			// $('.background').hide();
-			$('.modal').toggleClass('modal-open');
+			$('body').removeClass('js-body-modal');
+			$('.background').hide();
+			$('.modal').removeClass('modal-open');
 		});
 	});
 
@@ -164,6 +174,12 @@
 
 
 
-
+	// Back to top button
+	$('.heart').click(function () {
+		$('body,html').animate({
+			scrollTop: 0
+		}, 1500);
+		return false;
+	});
 
 }(jQuery));
