@@ -1,5 +1,9 @@
 (function ($) {
 
+	$('.navbar-toggle').click(function() {
+		$('.icon-bar').toggleClass('animate');
+	});
+
 	// Header navigations
 	(function (document, window, index) {
 		'use strict';
@@ -34,7 +38,7 @@
 	})(document, window, 0);
 
 	// Scroll
-	$(".nav .menu__link_index, .nav a").click(function (event) {
+	$('.nav .menu__link_index, .nav a').click(function (event) {
 		event.preventDefault();
 		var id = $(this).attr('href'),
 				top = $(id).offset().top;
@@ -45,7 +49,7 @@
 
 
 
-	$(window).on("load resize scroll",function() {
+	$(window).on('load resize scroll',function() {
 		if ($(window).width() > 991) {
 			let heightBox = $('.js-margin').innerHeight();
 			let heightParentBox = $('.js-margin').parent().parent().innerHeight();
@@ -141,37 +145,54 @@
 		$('.js-btn-modal').click(function(){
 			$('body').addClass('js-body-modal');
 			$('.background').show();
-			$('.modal').removeClass('modal-open');
-			$('.form').toggleClass('modal-open');
+			$('.modalbox').removeClass('modalbox-open');
+			$('.form').toggleClass('modalbox-open');
 		});
-		$('.background').click(function(){
+		$('.background, .btn-ok').click(function(){
 			$('body').removeClass('js-body-modal');
 			$('.background').hide();
-			$('.modal').removeClass('modal-open');
+			$('.modalbox').removeClass('modalbox-open');
 		});
 	});
 
 
 
-	$(document).ready(function() {
-		$(".form").submit(function() {
+	// FORM
+	$(document).ready(function () {
+		$('#application').submit(function () {
 			$.ajax({
 				type: "POST",
-				// url: "/wp-content/themes/AO/mail.php",
-				url: "mail.php",
-				data: $(".form").serialize(),
-				success: function success(data) {
-					$('.success').modal("show");
-					setTimeout(function () {
-						$(".form").trigger("reset");
-						$('.modal').hide();
-					}, 5000);
-				}
-			})
+					url: "http://www.love-hotel.kh.ua/Love_Hotel/mail.php",
+					data: $("#application").serialize(),
+					success: function success(data) {
+						$(".form").removeClass('modalbox-open');
+						$('.success').addClass('modalbox-open');
+						setTimeout(function () {
+							$("#application").trigger("reset");
+							$('body').removeClass('js-body-modal');
+							$('.modalbox').removeClass('modalbox-open');
+							$('.background').hide();
+						},5000);
+					}
+				});
 			return false;
 		});
 	});
 
+
+	// ANIMATIONS
+	$('.destiny__img').viewportChecker({
+		classToAdd: 'fadeInLeft'
+	});
+	$('.destiny__box').viewportChecker({
+		classToAdd: 'fadeInRight'
+	});
+	$('.benefits__img').viewportChecker({
+		classToAdd: 'rubberBand'
+	});
+	$('.description__box, .swiper-container').viewportChecker({
+		classToAdd: 'zoomIn'
+	});
 
 
 	// Back to top button
